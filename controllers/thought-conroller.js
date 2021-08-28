@@ -8,7 +8,7 @@ const thoughtController = {
           { _id: params.userId },
           { $push: { thoughts: _id } },
           { new: true }
-        );
+        ).populate("thoughts");
       })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
